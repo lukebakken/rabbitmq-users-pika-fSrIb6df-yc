@@ -8,6 +8,7 @@ pika = "*"
 
 [dev-packages]
 black = "*"
+pyright = "*"
 
 [requires]
 python_version = "3.11"
