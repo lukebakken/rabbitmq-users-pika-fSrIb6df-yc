@@ -1,6 +1,7 @@
 ﻿import logging
+import pprint
 import threading
-from connection import rabbitmq_thread, rabbitmq_publish
+from connection import rabbitmq_thread, rabbitmq_publish, rabbitmq_queue_declare
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -23,6 +24,10 @@ if __name__ == "__main__":
 
     logger.info("rabbitmq_thread started, publishing a message...")
     publish_message("hello")
+
+    logger.info("declaring a queue...")
+    rv = rabbitmq_queue_declare(queue_name="foobar", passive=False)
+    logger.info("result: %r", pprint.pformat(rv))
 
     logger.info("stopping and waiting for rabbitmq_thread to exit...")
     stop_event.set()

@@ -9,6 +9,10 @@ pika = "*"
 [dev-packages]
 black = "*"
 pyright = "*"
+colorama = "*"
 
 [requires]
 python_version = "3.11"
+
+[scripts]
+main = "python main.py"
